@@ -34,39 +34,37 @@ export function SiteHeader() {
         </Container>
       </div>
       <Container className="max-w-[95%] flex h-20 items-center justify-between gap-4">
-        <div className="flex items-center gap-4">
-          <Link href="/" className="flex items-center gap-3 group">
-            <div className="relative h-14 w-48 transition-transform group-hover:scale-105">
-              <Image
-                src="/logo.png"
-                alt="АРМАНИ СТРОЙ"
-                fill
-                className="object-contain object-left"
-                priority
-              />
-            </div>
-          </Link>
-          
-          <nav className="hidden lg:ml-10 lg:flex lg:items-center lg:gap-8">
-            {[
-              { name: "Проекты", href: "#projects" },
-              { name: "Калькулятор", href: "#calc" },
-              { name: "О компании", href: "#about" },
-              { name: "Портфолио", href: "#portfolio" },
-              { name: "Отзывы", href: "#reviews" },
-            ].map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className="text-sm font-bold text-slate-600 transition-colors hover:text-brand-600"
-              >
-                {item.name}
-              </a>
-            ))}
-          </nav>
-        </div>
+        <Link href="/" className="flex items-center gap-3 group shrink-0">
+          <div className="relative h-14 w-48 transition-transform group-hover:scale-105">
+            <Image
+              src="/logo.png"
+              alt="АРМАНИ СТРОЙ"
+              fill
+              className="object-contain object-left"
+              priority
+            />
+          </div>
+        </Link>
+        
+        <nav className="hidden lg:flex lg:items-center lg:gap-8 flex-1 justify-center">
+          {[
+            { name: "Проекты", href: "#projects" },
+            { name: "Калькулятор", href: "#calc" },
+            { name: "О компании", href: "#about" },
+            { name: "Портфолио", href: "#portfolio" },
+            { name: "Отзывы", href: "#reviews" },
+          ].map((item) => (
+            <a
+              key={item.name}
+              href={item.href}
+              className="text-sm font-bold text-slate-600 transition-colors hover:text-brand-600 whitespace-nowrap"
+            >
+              {item.name}
+            </a>
+          ))}
+        </nav>
 
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-6 shrink-0">
           <div className="hidden xl:block">
             <div className="text-right">
               <a href="tel:+79203555522" className="text-lg font-black text-slate-900 hover:text-brand-600 transition-colors">
