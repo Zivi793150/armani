@@ -46,23 +46,24 @@ export function SiteHeader() {
           </div>
         </Link>
         
-        <nav className="hidden lg:flex lg:items-center lg:gap-8 flex-1 justify-center">
-          {[
-            { name: "Проекты", href: "#projects" },
-            { name: "Калькулятор", href: "#calc" },
-            { name: "О компании", href: "#about" },
-            { name: "Портфолио", href: "#portfolio" },
-            { name: "Отзывы", href: "#reviews" },
-          ].map((item) => (
-            <a
-              key={item.name}
-              href={item.href}
-              className="text-sm font-bold text-slate-600 transition-colors hover:text-brand-600 whitespace-nowrap"
-            >
-              {item.name}
-            </a>
-          ))}
-        </nav>
+          <nav className="hidden lg:flex lg:items-center lg:gap-8 flex-1 justify-center">
+            {[
+              { name: "Каталог", href: "/#projects" },
+              { name: "Калькулятор", href: "/#calc" },
+              { name: "О компании", href: "/about" },
+              { name: "Портфолио", href: "/portfolio" },
+              { name: "Отзывы", href: "/#reviews" },
+              { name: "Контакты", href: "/contacts" },
+            ].map((item) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                className="text-sm font-bold text-slate-600 transition-colors hover:text-brand-600 whitespace-nowrap"
+              >
+                {item.name}
+              </Link>
+            ))}
+          </nav>
 
         <div className="flex items-center gap-6 shrink-0">
           <div className="hidden xl:block">

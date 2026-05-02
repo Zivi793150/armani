@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Container } from "@/components/layout/Container";
 
 export function SiteFooter() {
@@ -6,7 +7,7 @@ export function SiteFooter() {
       <Container className="py-10">
         <div className="grid gap-8 md:grid-cols-3">
           <div>
-            <div className="text-sm font-semibold">Armanistroi</div>
+            <div className="text-sm font-semibold">АРМАНИ СТРОЙ</div>
             <div className="mt-2 text-sm text-slate-600">
               Строительство домов и ремонт под ключ в Иваново и области.
             </div>
@@ -14,26 +15,31 @@ export function SiteFooter() {
 
           <div className="text-sm text-slate-600">
             <div className="font-semibold text-slate-900">Контакты</div>
-            <div className="mt-2">г. Иваново, ул. Ленина 1</div>
-            <div className="mt-1">+7 (920) 355-55-22</div>
-            <div className="mt-1">Armanistroi@mail.ru</div>
+            <div className="mt-2 text-slate-600 leading-relaxed">
+              г. Иваново, ул. Лежневская, 117<br />
+              +7 (920) 355-55-22<br />
+              info@armanistroi.ru
+            </div>
           </div>
 
           <div className="text-sm text-slate-600">
             <div className="font-semibold text-slate-900">Быстрые ссылки</div>
             <div className="mt-2 grid gap-2">
-              <a className="hover:text-slate-900" href="#projects">
+              <Link className="hover:text-brand-600 transition-colors font-bold" href="/#projects">
                 Проекты
-              </a>
-              <a className="hover:text-slate-900" href="#services">
-                Услуги
-              </a>
-              <a className="hover:text-slate-900" href="#reviews">
+              </Link>
+              <Link className="hover:text-brand-600 transition-colors font-bold" href="/about">
+                О компании
+              </Link>
+              <Link className="hover:text-brand-600 transition-colors font-bold" href="/portfolio">
+                Портфолио
+              </Link>
+              <Link className="hover:text-brand-600 transition-colors font-bold" href="/contacts">
+                Контакты
+              </Link>
+              <Link className="hover:text-brand-600 transition-colors font-bold" href="/#reviews">
                 Отзывы
-              </a>
-              <a className="hover:text-slate-900" href="#faq">
-                FAQ
-              </a>
+              </Link>
             </div>
           </div>
         </div>

@@ -1,13 +1,34 @@
+"use client";
+
+import { useState } from "react";
 import { Container } from "@/components/layout/Container";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
+import { InquiryModal } from "@/components/ui/InquiryModal";
 
 export default function Home() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalType, setModalType] = useState<"callback" | "consultation" | "calculation" | "order">("callback");
+  const [modalTitle, setModalTitle] = useState("Оставить заявку");
+
+  const openModal = (type: typeof modalType, title: string) => {
+    setModalType(type);
+    setModalTitle(title);
+    setIsModalOpen(true);
+  };
+
   return (
     <div className="min-h-screen">
       <SiteHeader />
+
+      <InquiryModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+        type={modalType}
+        title={modalTitle}
+      />
 
       <main>
         <section className="relative flex min-h-[85vh] items-center justify-center overflow-hidden bg-slate-900 py-32">
@@ -25,10 +46,19 @@ export default function Home() {
               Профессиональное проектирование и строительство <br className="hidden md:block" /> из любых материалов с гарантией качества
             </p>
             <div className="mt-12 flex flex-wrap justify-center gap-6">
-              <Button href="#calc" size="lg" className="bg-brand-600 px-10 text-lg hover:bg-brand-700 shadow-xl shadow-brand-600/20">
+              <Button 
+                onClick={() => openModal("calculation", "Рассчитать стоимость")}
+                size="lg" 
+                className="bg-brand-600 px-10 text-lg hover:bg-brand-700 shadow-xl shadow-brand-600/20"
+              >
                 Рассчитать стоимость
               </Button>
-              <Button href="#projects" variant="outline" size="lg" className="border-white px-10 text-lg text-white hover:bg-white/10 backdrop-blur-sm">
+              <Button 
+                href="#projects" 
+                variant="outline" 
+                size="lg" 
+                className="border-white px-10 text-lg text-white hover:bg-white/10 backdrop-blur-sm"
+              >
                 Смотреть проекты
               </Button>
             </div>
